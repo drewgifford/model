@@ -1,0 +1,81 @@
+<html>
+
+    <head>
+        <title>LTEGE Polling Model</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="icon" type="image/png" href="./img/lte.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+
+        <p><a href="../index.html">&larr; Back to Home</a></p>
+
+        <img src="./img/logo.png" class="logo">
+        <br>
+        <label for="race-rating">Race Rating</label>
+        <select id="race-rating" name="race-rating" type="number">
+            <option value="verySafeR">Very Safe R</option>
+            <option value="safeR">Safe R</option>
+            <option value="veryLikelyR">Very Likely R</option>
+            <option value="likelyR">Likely R</option>
+            <option value="leanR">Lean R</option>
+            <option value="tiltR">Tilt R</option>
+            <option value="tossup">Tossup</option>
+            <option value="tiltD">Tilt D</option>
+            <option value="leanD">Lean D</option>
+            <option value="likelyD">Likely D</option>
+            <option value="veryLikelyD">Very Likely D</option>
+            <option value="safeD">Safe D</option>
+            <option value="verySafeD">Very Safe D</option>
+        </select>
+        <br>
+        <button id="add">
+        Add Candidate +
+        </button>
+        <button id="remove">
+        Remove Candidate -
+        </button>
+        <button id="simulation">
+        Run Simulation
+        </button>
+        <br>
+        <div class="results">
+        
+        </div>
+        <div class="hidden template">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="party">Party</label>
+        <select id="party" name="party">
+            <option value="Gop">Republican</option>
+            <option value="Dem">Democrat</option>
+            <option value="indGop">Independent (R Caucus)</option>
+            <option value="indDem">Independent (D Caucus)</option>
+            <option value="ind">Independent</option>
+        </select>
+        <br>
+        <label for="policy">Policy Match %</label>
+        <input id="policy" name="policy" type="number">
+        <br>
+        <label for="popularity">Popularity %</label>
+        <input id="popularity" name="popularity" type="number">
+        <br>
+        <label for="ads">Advertising Effectiveness %</label>
+        <input id="ads" name="ads" type="number">
+        <br>
+        <label for="visit">Visiting Effectiveness %</label>
+        <input id="visit" name="visit" type="number">
+        <br>
+        <label for="incumbency">Incumbent</label>
+        <input id="incumbency" name="incumbency" type="checkbox">
+
+
+        </div>
+
+        <div class="candidates">
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="./js/model.js"></script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+.rounded-large {
+    border-radius: 20px;
+}
+.small {
+    font-size: 0.5em;
+}
+a img {
+    width: 2em;
+    padding-bottom: 3px;
+}
+
+.bg-darker {
+    background-color: #111111;
+}

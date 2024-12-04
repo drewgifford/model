@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Toad's Polling Model 2.0</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/png" href="./img/lte.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="bg-dark">
+
+    <div class="container">
+        <div class="mt-5 p-5 bg-light rounded">
+
+            
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <h1>Polling Model 2.0</h1>
+                    <p>A recreation of the election model used in the mock government Let's Do Elections 2.</p>
+                    <p><b class="text-primary">Did you know?</b> There is a new version of this model in beta. <a href="/model/v3">Check it out!</a></p>
+                    <p><a href="../index.html">&larr; Back to Home</a></p>
+
+                    <hr/>
+
+                    <p class="mb-1">State Values</p>
+
+                    <div class="input-group mb-3" id="stateInputs">
+                        <span class="input-group-text">Economic</span>
+                        <input data-pm="economic" type="number" min="-100" max="100" aria-label="Economic Axis" class="form-control" value="0">
+                    
+                        <span class="input-group-text" style="margin-left: 1em">Social</span>
+                        <input data-pm="social" type="number" min="-100" max="100" aria-label="Social Axis" class="form-control" value="0">
+                    
+                        <span class="input-group-text" style="margin-left: 1em">Deviation<span class="help" data-bs-toggle="tooltip" title="How tolerant the state is of ideologies far from its median">?</span></span>
+                        <input data-pm="deviation" type="number" min="0" max="100" aria-label="Standard Deviation" class="form-control" value="45">
+                    
+
+                    </div>
+
+                    <div class="candidates">
+
+                        <p class="mb-1">Candidates</p>
+        
+                        <a class="btn btn-success mb-3" id="addCandidate">&plus; Add Candidate</a>
+                        <a class="btn btn-danger mb-3"  id="removeCandidate">&minus; Remove Candidate</a>
+        
+                        <table class="table table-striped">
+
+                            <thead>
+                                <th scope="col">Color</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Economic<span class="help" data-bs-toggle="tooltip" title="Political Compass coordinate of the candidate's economy policy (-100=Left, 100=Right)">?</span></th>
+                                <th scope="col">Social<span class="help" data-bs-toggle="tooltip" title="Political Compass coordinate of the candidate's social policy (-100=Left, 100=Right)">?</span></th>
+                                <th scope="col">Popularity<span class="help" data-bs-toggle="tooltip" title="Popularity of the candidate with the constituents (0=Hated 100=Loved)">?</span></th>
+                                <th scope="col">Name&nbsp;Rec.<span class="help" data-bs-toggle="tooltip" title="How well-known the candidate is with the constituents (0=Unknown 100=Household Name)">?</span></th>
+                                <th scope="col">Effectiveness<span class="help" data-bs-toggle="tooltip" title="Effectiveness of the candidate's campaign (0=Ineffective 100=Very Effective)">?</span></th>
+                            </thead>
+
+                            <tbody id="candidateTable">
+                            </tbody>
+        
+                        </table>
+                    </div>
+
+                    <a class="btn btn-primary mb-3" id="importCandidates">&DownArrowBar; Import Candidates</a>
+                    <a class="btn btn-secondary mb-3" id="exportCandidates">&UpArrowBar; Export Candidates</a>
+
+                        
+                </div>
+
+                
+                <div class="col-md-4">
+
+                    <a class="btn btn-primary mb-3" id="runModel">Run Model</a>
+
+                    <div class="results mb-3" id="results">
+
+                        <div class="result">
+
+                        </div>
+
+                        <p>Results will show here once the model is run.</p>
+                    </div>
+
+                    <div class="candidatesGrid mb-3">
+                        <div id="pinGrid">
+                        </div>
+                        <canvas id="canvas" width="300" height="300"></canvas>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
+
+            
+
+            
+        
+        </div>
+
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+    <script src="./js/model.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+
+
+
+
+
+</html>

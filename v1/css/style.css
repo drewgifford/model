@@ -1,0 +1,96 @@
+* {
+    font-family: sans-serif, serif;
+  }
+  body {
+      padding: 1em;
+  }
+  
+  .candidate {
+      border: 5px double black;
+      padding: 1em;
+    }
+    h2 {
+      margin: 0;
+    }
+    button {
+      margin: 10px 0px;
+    }
+    input,select {
+      margin-bottom: 5px;
+    }
+    .hidden {
+      display: none;
+    }
+  
+    svg {
+        overflow: unset;
+        width: 50%;
+    }
+    #map {
+        height: 1024px;
+    }
+    input[type="number"]{
+      width: 5em;
+    }
+    .result {
+      padding: 10px;
+      margin: 5px 0px;
+    }
+    .result p {
+      background: rgba(0,0,0,0.5);
+      display: inline;
+      padding: 5px;
+      color: white;
+    }
+  .logo {
+      max-width: 50%;
+      width: 500px;
+      margin-bottom: 25px;
+  }
+  option {
+    padding: 10px;
+  }
+  option[value="verySafeR"]{
+    background: #731119; color: white;
+  }
+  option[value="safeR"]{
+    background: #991721; color: white;
+  }
+  option[value="veryLikelyR"]{
+    background: #bf1d29; color: white;
+  }
+  option[value="likelyR"]{
+    background: #cc4a54; color: white;
+  }
+  option[value="leanR"]{
+    background: #d9777f; color: white;
+  }
+  option[value="tiltR"]{
+    background: #e5a5a9; color: white;
+  }
+  
+  option[value="verySafeD"]{
+    background: #112654; color: white;
+  }
+  option[value="safeD"]{
+    background: #163370; color: white;
+  }
+  option[value="veryLikelyD"]{
+    background: #1c408c; color: white;
+  }
+  option[value="likelyD"]{
+    background: #4966a3; color: white;
+  }
+  option[value="leanD"]{
+    background: #6079af; color: white;
+  }
+  option[value="tiltD"]{
+    background: #8ea0c6; color: white;
+  }
+  .results {
+    max-width: 100%;
+    border: 5px double black;
+    padding: 1em;
+    width: 500px;
+  }
+  

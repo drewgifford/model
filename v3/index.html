@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+
+<head>
+    <title>Toad's Polling Model 2.0</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="icon" type="image/png" href="./img/lde3.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="bg-darker">
+
+    <div class="container-large">
+        <div class="mt-5 p-5 bg-dark rounded text-white">
+
+            
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <h1>Election Model 3.0<span class="small text-primary">&nbsp;Beta</span></h1>
+                    <p>A beefier, upgraded version of the 2.0 Model. <br/>This model features more controls, better visualization, and more sensible calculations of the effect of your inputs.</p>
+                    <p><a href="../index.html">&larr; Back to Home</a></p>
+
+                    <hr/>
+
+                    <p class="mb-1">Model Options</p>
+                    <div class="input-group mb-3" id="modelInputs">
+                        <span class="input-group-text">Resolution<span class="help" data-bs-toggle="tooltip" title="The width in pixels of each calculated section. Lower numbers mean more detailed calculations.">?</span></span>
+                        <input data-pm="resolution" type="number" min="0.1" max="100" aria-label="Resolution" class="form-control" value="5">
+
+                    </div>
+
+                    <p class="mb-1">State Values</p>
+
+                    <div class="input-group mb-3" id="stateInputs">
+                        <span class="input-group-text">Economic</span>
+                        <input data-pm="economic" type="number" min="-100" max="100" aria-label="Economic Axis" class="form-control" value="0">
+                    
+                        <span class="input-group-text" style="margin-left: 1em">Freedom</span>
+                        <input data-pm="freedom" type="number" min="-100" max="100" aria-label="Freedom Axis" class="form-control" value="0">
+
+                        <span class="input-group-text input-dark" style="margin-left: 1em">Social</span>
+                        <input data-pm="social" type="number" min="-100" max="100" aria-label="Social Axis" class="form-control" value="0">
+                    
+                        <span class="input-group-text" style="margin-left: 1em">Tolerance<span class="help" data-bs-toggle="tooltip" title="How tolerant the state is of ideologies far from its median. Calculated in distance from all three axes.">?</span></span>
+                        <input data-pm="tolerance" type="number" min="10" max="1000" aria-label="Tolerance" class="form-control" value="250">
+                    
+
+                    </div>
+
+                    <div class="candidates">
+
+                        <p class="mb-1">Candidates</p>
+        
+                        <a class="btn btn-success mb-3" id="addCandidate">&plus; Add Candidate</a>
+                        <a class="btn btn-danger mb-3"  id="removeCandidate">&minus; Remove Candidate</a>
+        
+                        <table class="table table-striped table-dark">
+
+                            <thead>
+                                <th scope="col">Color</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Economic<span class="help" data-bs-toggle="tooltip" title="Political Compass coordinate of the candidate's economic policy (-100=Left, 100=Right)">?</span></th>
+                                <th scope="col">Freedom<span class="help" data-bs-toggle="tooltip" title="Political Compass coordinate of the candidate's freedom policy (-100=Libertarian, 100=Authoritarian)">?</span></th>
+                                <th scope="col">Social<span class="help" data-bs-toggle="tooltip" title="Political Compass coordinate of the candidate's social policy (-100=Progressive, 100=Conservative)">?</span></th>
+                                <th scope="col">Popularity<span class="help" data-bs-toggle="tooltip" title="Popularity of the candidate with the constituents (0=Hated 100=Loved)">?</span></th>
+                                <th scope="col">Name&nbsp;Rec.<span class="help" data-bs-toggle="tooltip" title="How well-known the candidate is with the constituents (0=Unknown 100=Household Name)">?</span></th>
+                                <th scope="col">Effectiveness<span class="help" data-bs-toggle="tooltip" title="Effectiveness of the candidate's campaign (0=Ineffective 100=Very Effective)">?</span></th>
+                            </thead>
+
+                            <tbody id="candidateTable">
+                            </tbody>
+        
+                        </table>
+                    </div>
+
+                    <a class="btn btn-primary mb-3" id="importCandidates">&DownArrowBar; Import Candidates</a>
+                    <a class="btn btn-secondary mb-3" id="exportCandidates">&UpArrowBar; Export Candidates</a>
+
+                        
+                </div>
+
+                
+                <div class="col-md-4">
+
+                    <a class="btn btn-primary mb-3" id="runModel">Run Model</a>
+
+                    <div class="results mb-3" id="results">
+
+                        <div class="result">
+
+                        </div>
+
+                        <p>Results will show here once the model is run.</p>
+                    </div>
+
+                    <div class="candidatesGrid mb-3">
+                        <div id="pinGrid">
+                        </div>
+                        <canvas id="canvas" width="300" height="300"></canvas>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
+
+            
+
+            
+        
+        </div>
+
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+    <!--<script src="./js/model.js"></script>-->
+    <script src="./js/index.js"></script>
+</body>
+
+
+
+
+
+
+</html>

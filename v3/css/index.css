@@ -1,0 +1,97 @@
+.candidatesGrid {
+    display: block;
+    margin: auto;
+    width: 100%;
+    background: white;
+
+}
+.table {
+    background: white;
+}
+.help {
+    filter: opacity(0.65);
+    font-size: 0.6em;
+    vertical-align: super;
+    cursor: help;
+    margin-left: 5px;
+}
+input[type="number"] {
+    max-width: 100px;
+}
+input[type="color"] {
+    display: block;
+    margin: auto;
+}
+
+th {
+    text-align: center;
+}
+
+.result {
+    padding: 0.25em 1em;
+    border-radius: 0 0.5em 0.5em 0;
+    margin-bottom: 0.5rem;
+}
+
+.results {
+    border: 1px solid #212529;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+.result span {
+    background: white;
+    color: black;
+    padding: 0 0.5em;
+    border-radius: 3px;
+  }
+
+canvas {
+    display: block;
+    margin: auto;
+    border: 1px solid #212529;
+    border-radius: 3px;
+}
+.candidatesGrid {
+    width: 300px;
+    display: block;
+    margin: auto;
+}
+
+#pinGrid {
+    position: relative;
+}
+
+.pin {
+    position: absolute;
+    display: block;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+}
+
+.bg-darker {
+    background-color: #111111;
+}
+
+.small {
+    font-size: 0.5em;
+}
+
+.container-large {
+    max-width: 80vw;
+    width: 1800px;
+    margin: auto;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.pin {
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-radius: 100%;
+    background-color: white;
+    border: 3px solid white;
+}
